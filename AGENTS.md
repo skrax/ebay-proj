@@ -1,5 +1,20 @@
 # AGENTS.md
 
+## Development
+
+CI (`.github/workflows/ci.yml`) runs these six gates on every push and PR to
+`main`. Run them locally before pushing:
+
+```bash
+uv sync --locked          # install deps, fail on a stale lockfile
+uv run ruff check .       # lint
+uv run ruff format --check .  # format check
+uv run pyright            # type check (strict)
+uv run pytest             # tests
+uv lock --check           # lockfile matches pyproject.toml
+uv build                  # packaging sanity
+```
+
 ## Agent skills
 
 ### Issue tracker
