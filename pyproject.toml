@@ -26,6 +26,9 @@ dev = [
 [tool.ruff]
 target-version = "py312"
 src = ["src", "tests"]
+# Ruff lints/formats Python code blocks inside Markdown; our docs quote
+# upstream snippets verbatim, so keep them out of scope.
+extend-exclude = ["*.md"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
